@@ -1,0 +1,6 @@
+express
+dotenv 
+mysql2 
+cors 
+bcyptjs 
+sequelize
