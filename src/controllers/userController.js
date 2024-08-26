@@ -2,16 +2,16 @@ const { User } = require('../dataBase');
 
 const addUser = async (req, res) => {
   try {
-    const { userCedula, email, name, age} = req.body;
+    const { userID, email, userName, userAge} = req.body;
     
-    const usuarioExistente = await Usuario.findByPk(userCedula);
+    const existingUser = await User.findByPk(userID);
     
-    if (usuarioExistente) {
-      return res.status(400).json({ error: 'El usuario ya existe' });
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists ' });
     }
 
-    const newUser = await User.create({ userCedula, email, name, age });
-    res.status(201).json({ message:'Usuario creado',newUser});
+    const newUser = await User.create({ userID, email, userName, userAge });
+    res.status(201).json({ message:'User crreated',newUser});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

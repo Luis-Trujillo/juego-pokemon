@@ -1,15 +1,15 @@
 module.exports = (Sequelize, DataTypes)=>{
     return Sequelize.define('user', {
-        userId:{
+        id:{
             type: DataTypes.STRING, 
             primarykey: true, 
             allowNull: false,
-            unique: 'userId'
+            unique: 'id'
         },
-        userCedula:{
+        userId:{
             type: DataTypes.STRING,
             allowNull: false,
-            unique: 'userCedula'
+            unique: 'userId'
         },
         email:{
             type: DataTypes.STRING,
@@ -20,7 +20,7 @@ module.exports = (Sequelize, DataTypes)=>{
             type: DataTypes.STRING,
             allowNull: false
         },
-        age:{
+        userAge:{
             type: DataTypes.STRING,
             allowNull: false
         }

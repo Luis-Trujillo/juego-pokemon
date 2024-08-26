@@ -1,14 +1,14 @@
-const { Capturado } = require('../baseDatos');
+const { Captured } = require('../dataBase');
 
-const capturarPokemon = async (req, res) => {
+const capturePokemon  = async (req, res) => {
   try {
-    const capturado = await Capturado.create(req.body);
-    res.status(201).json({ message: 'Pokemon capturado',capturado });
+    const captured = await Captured.create(req.body);
+    res.status(201).json({ message: 'Pokemon has been captured ',captured });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
 module.exports = {
-    capturarPokemon
+    capturePokemon
 };

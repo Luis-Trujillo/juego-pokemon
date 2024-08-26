@@ -1,21 +1,21 @@
-module.exports = (sequelize, DataTypes)=>{
+module.exports = (Sequelize, DataTypes)=>{
     return Sequelize.define('pokemon',{
-        id: {
-            type: DataTypes.STRING,
+        pokemoId: {
+            type: DataTypes.INT,
             primarykey: true, 
             allowNull: false,
             unique: 'id'
         }, 
-        nombre: {
+        pokemonName: {
             type: DataTypes.STRING,
             allowNull: false, 
-            unique: 'nombre'
+            unique: 'pokemonName'
         },
-        tipo:{
+        pokemonType:{
             type: DataTypes.STRING,
             allowNull: false
         },
-        poder:{
+        pokemonPower:{
             type: DataTypes.STRING,
             allowNull: false
         }

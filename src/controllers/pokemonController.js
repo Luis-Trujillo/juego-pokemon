@@ -1,26 +1,26 @@
-const { Pokemon } = require('../baseDatos');
+const { Pokemon } = require('../dataBase');
 
-const registrarPokemon = async (req, res) => {
+const addPokemon = async (req, res) => {
   try {
-    const { nombre, tipo,poder} = req.body;
+    const { pokemonName, pokemontype,pokemonPower} = req.body;
     
-    const pokemonExistente = await Pokemon.findOne({
+    const existingPokemon = await Pokemon.findOne({
         where: {
-            nombre: nombre
+            pokemonName: pokemonName
         }
     });
 
-    if (pokemonExistente) {
-      return res.status(400).json({ error: 'El pokemon ya existe' });
+    if (existingPokemon) {
+      return res.status(400).json({ error: 'Pokemon already exists' });
     }
 
-    const nuevoPokemon = await Pokemon.create({ nombre, tipo,poder });
-    res.status(201).json({ message:'Pokemon creado',nuevoPokemon});
+    const newPokemon = await Pokemon.create({ pokemonName, pokemontype,pokemonPower });
+    res.status(201).json({ message:'Pokemon created',newPokemon});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
 module.exports = {
-    registrarPokemon
+    addPokemon
 };

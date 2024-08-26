@@ -12,7 +12,7 @@ module.exports = (Sequelize, Datatypes)=>{
                 key: 'id'
             }
         },
-        cedulaUser:{
+        userId:{
             type: Datatypes.STRING,
             references: {
                 models: 'user', 

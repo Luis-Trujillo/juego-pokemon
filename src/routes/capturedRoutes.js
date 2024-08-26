@@ -1,7 +1,7 @@
 const express = require('express');
-const enrutador = express.Router();
-const pokemonCapturado = require('../controladores/capturadoControlador');
+const routerCapture = express.Router();
+const pokemonCaptured  = require('../controladores/capturadoControlador');
 
-enrutador.post('/capturar',pokemonCapturado.capturarPokemon);
+routerCapture.post('/capture',pokemonCaptured.capturarPokemon);
 
 module.exports = enrutador;
